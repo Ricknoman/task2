@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generating Order...</title>
+
+<!-- Semantic UI CSS -->
+<link rel="stylesheet" type="text/css" href="./index_files/semantic.min.css">
+
+<!-- jQuery & Semantic UI JS -->
+<script src="./index_files/jquery.min.js"></script>
+<script src="./index_files/semantic.min.js"></script>
+<script src="./index_files/order_validate.js"></script>
+
+<style>
+body {
+    background-color: #f1f1f1;
+}
+a {
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation Bar -->
+<div class="ui inverted huge borderless fixed fluid menu">
+    <a class="header item">BUS TICKET RESERVATION SYSTEM</a>
+</div>
+
+<!-- Main Container -->
+<div class="ui text container" style="margin-top: 90px;">
+    <div id="err001" class="ui icon small attached message">
+        <i class="notched circle loading icon gload"></i>
+        <div class="content">
+            <div class="header">Generating Order....</div>
+            <p>Requesting for Order Ref... just a sec.</p>
+            <div id="proceed" style="display: none;">
+                <a href="booking.php" class="ui button small green">Done! Proceed</a>
+                <a href="../admin/login.php" class="ui button small orange">Admin Login</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lost Ticket & FAQ Section -->
+    <div class="ui attached bottom message">
+        <div class="ui horizontal divider">Lost your ticket?</div>
+
+        <form onsubmit="return ordval(this)">
+            <div id="refbox" class="ui icon input small">
+                <input placeholder="Enter Order Ref" id="refinput" required>
+                <i class="search icon"></i>
+            </div>
+            <button id="printbtn" class="ui button small blue" type="submit">Re-print</button>
+        </form>
+
+        <div class="ui horizontal divider">FAQs</div>
+
+        <div class="ui styled fluid accordion">
+            <div class="title">
+                <i class="dropdown icon"></i>
+                What is an Order Ref?
+            </div>
+            <div class="content">
+                <p>An Order Reference Number is a unique system-generated number that identifies your ticket and booking information.</p>
+            </div>
+
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Can I retrieve or re-print a lost ticket?
+            </div>
+            <div class="content">
+                <p>Yes, just provide the Order Ref above and the system will validate and re-print your ticket.</p>
+            </div>
+
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Is this website operational?
+            </div>
+            <div class="content">
+                <p>This system is currently under development. In future, it will be used for real ticket bookings.</p>
+            </div>
+
+            <div class="title">
+                <i class="dropdown icon"></i>
+                Who is the Developer of this system?
+            </div>
+            <div class="content">
+                <p>The developer of this system is Vishal Shah (VISHAL SHAH PVT. LTD.). For inquiries, contact: <a href="mailto:vishal12kl@gmail.com">vishal12kl@gmail.com</a> or call <a href="tel:+918178930006">+91 81789 30006</a>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Script to Show Proceed Buttons After Delay -->
+<script>
+$(document).ready(function() {
+    setTimeout(function() {
+        $('.gload').hide();
+        $('#proceed').show();
+    }, 5000);
+
+    // Activate Accordion
+    $('.ui.accordion').accordion();
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,3 @@
+[submodule "admin/task2"]
+	path = admin/task2
+	url = https://github.com/Ricknoman/task2.git
